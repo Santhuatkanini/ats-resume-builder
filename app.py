@@ -23,8 +23,8 @@ load_dotenv()
 
 # Configure Streamlit page
 st.set_page_config(
-    page_title="AI-Powered ATS Resume Builder",
-    page_icon="🤖",
+    page_title="Nagashree's ATS Resume Builder",
+    page_icon="❤️",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -81,6 +81,46 @@ st.markdown("""
         border-radius: 0.5rem;
         margin: 1rem 0;
     }
+            
+    
+    .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        font-size: 14px;
+        font-weight: 500;
+        box-shadow: 0 -2px 10px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+    
+    .footer-heart {
+        color: #ff6b6b;
+        font-size: 16px;
+        animation: heartbeat 1.5s ease-in-out infinite;
+    }
+    
+    @keyframes heartbeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.1); }
+        100% { transform: scale(1); }
+    }
+    
+    .footer-name {
+        color: #ffd93d;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    /* Add bottom padding to main content to avoid footer overlap */
+    .main .block-container {
+        padding-bottom: 60px;
+    }
 </style>
 """, unsafe_allow_html=True)
 
@@ -88,6 +128,8 @@ class AIResumeOptimizer:
     def __init__(self):
         self.azure_client = None
         self.setup_azure_openai()
+    
+    
     
     def setup_azure_openai(self):
         """Initialize Azure OpenAI client"""
@@ -1398,11 +1440,13 @@ Return as JSON:
             return None
 
 def main():
-    st.markdown('<h1 class="main-header">🤖 AI-Powered ATS Resume Builder</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">❤️ Resume Builder for Nagshree ❤️</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #666;">Advanced Azure OpenAI Resume Optimization</p>', unsafe_allow_html=True)
     
     # Initialize optimizer
     optimizer = AIResumeOptimizer()
+
+    
     
     # Sidebar
     with st.sidebar:
@@ -2151,6 +2195,16 @@ def display_resume_preview(resume_data):
         st.markdown("")
     
     st.markdown('</div>', unsafe_allow_html=True)
+
+def add_footer():
+    """Add a beautiful footer to the app"""
+    st.markdown("""
+    <div class="footer">
+        Created with <span class="footer-heart">❤️</span> for <span class="footer-name">Nagashree</span>
+    </div>
+    """, unsafe_allow_html=True)
+
+add_footer() 
 
 if __name__ == "__main__":
     main()
