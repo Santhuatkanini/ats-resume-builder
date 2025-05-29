@@ -1440,7 +1440,7 @@ Return as JSON:
             return None
 
 def main():
-    st.markdown('<h1 class="main-header">❤️ Resume Builder for Nagshree ❤️</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header">❤️ Resume Builder for Nagashree ❤️</h1>', unsafe_allow_html=True)
     st.markdown('<p style="text-align: center; font-size: 1.2rem; color: #666;">Advanced Azure OpenAI Resume Optimization</p>', unsafe_allow_html=True)
     
     # Initialize optimizer
